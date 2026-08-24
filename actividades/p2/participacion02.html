@@ -1,1 +1,49 @@
-
+<!doctype html>
+<html>
+ <head>
+   <meta charset="utf-8">
+   <title>Participación 2 Reto Canvas</title>
+   <style>
+    body{
+        text-align: center;
+        background-color: rgb(174, 226, 228);
+    }
+    h1{
+      color:rgb(58, 134, 247);
+      font-family: 'Times New Roman', Times, serif;
+    }
+    canvas{
+        border: 2px solid #5e5e5e;
+        background-color: rgb(73, 173, 255);
+    }
+   </style>
+   <script>
+        var x = Math.random() * 650;
+        var y = Math.random() * 450;
+        var dx = 2;
+        var dy = 2;
+        var imagen = new Image();
+        imagen.src = "newjeanslogo.png";
+        function animate(){    
+            requestAnimationFrame(animate);
+            var canvas = document.getElementById("micanvas");
+            var context = canvas.getContext("2d");
+            context.clearRect(0, 0, innerWidth, innerHeight);
+            context.drawImage(imagen, x, y, 150, 150);
+            if (x > 650 || x < 0){
+                dx = -dx;
+            }
+            if (y > 450 || y < 0){
+                dy = -dy;
+            }
+            x += dx;
+            y += dy;
+        }
+        animate();
+   </script>
+ </head>
+ <body>
+    <h1>Participación 2 Reto Canvas</h1>
+    <canvas id="micanvas" width="800" height="600"></canvas>
+ </body>
+</html>
