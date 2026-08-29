@@ -1,1 +1,120 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>A4 - Arte en Canvas</title>
 
+    <style>
+        body{
+            text-align: center;
+            background-color: rgb(174, 226, 228);
+        }
+
+        h1{
+            color: rgb(58, 134, 247);
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        canvas{
+            border: 3px solid brown;
+            background-color: white;
+        }
+    </style>
+
+    <script>
+
+        var x = 20;
+        var dx = 3;
+
+        var pixel = 30;
+
+        var anchoRana = 12 * pixel;
+
+
+        function rana(context){
+
+            context.fillStyle = "#65483d";
+
+            context.fillRect(x + pixel * 2, 120, pixel * 2, pixel);
+            context.fillRect(x + pixel * 8, 120, pixel * 2, pixel);
+
+            context.fillRect(x + pixel, 150, pixel, pixel * 2);
+            context.fillRect(x + pixel * 4, 150, pixel, pixel);
+            context.fillRect(x + pixel * 7, 150, pixel, pixel);
+            context.fillRect(x + pixel * 10, 150, pixel, pixel * 2);
+
+            context.fillRect(x + pixel * 3, 180, pixel, pixel);
+            context.fillRect(x + pixel * 8, 180, pixel, pixel);
+
+            context.fillRect(x, 210, pixel, pixel * 5);
+            context.fillRect(x + pixel * 11, 210, pixel, pixel * 5);
+
+            context.fillRect(x + pixel * 4, 300, pixel * 4, pixel);
+
+            context.fillRect(x + pixel, 360, pixel * 10, pixel);
+
+
+            context.fillStyle = "#8bc34a";
+
+            context.fillRect(x + pixel * 2, 150, pixel * 2, pixel);
+            context.fillRect(x + pixel * 8, 150, pixel * 2, pixel);
+
+            context.fillRect(x + pixel * 2, 180, pixel, pixel);
+            context.fillRect(x + pixel * 4, 180, pixel, pixel);
+            context.fillRect(x + pixel * 7, 180, pixel, pixel);
+            context.fillRect(x + pixel * 9, 180, pixel, pixel);
+
+            context.fillRect(x + pixel, 210, pixel * 10, pixel * 5);
+
+
+            context.fillStyle = "#65483d";
+            context.fillRect(x + pixel * 4, 300, pixel * 4, pixel);
+
+
+            context.fillStyle = "#ef88ad";
+
+            context.fillRect(x + pixel * 2, 240, pixel * 2, pixel);
+            context.fillRect(x + pixel * 8, 240, pixel * 2, pixel);
+        }
+
+
+        function animate(){
+
+            requestAnimationFrame(animate);
+
+            var canvas = document.getElementById("micanvas");
+            var context = canvas.getContext("2d");
+
+            context.clearRect(0, 0, canvas.width, canvas.height);
+
+            rana(context);
+
+
+            if(x + anchoRana >= canvas.width - 20){
+                dx = -3;
+            }
+
+            if(x <= 20){
+                dx = 3;
+            }
+
+            x += dx;
+        }
+
+
+        window.onload = function(){
+            animate();
+        };
+
+    </script>
+
+</head>
+
+<body>
+
+    <h1>Pixel Art en Canvas</h1>
+
+    <canvas id="micanvas" width="1000" height="500"></canvas>
+
+</body>
+</html>
