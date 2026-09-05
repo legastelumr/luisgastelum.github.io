@@ -1,0 +1,366 @@
+<!doctype html>
+<html>
+
+<head>
+
+  <meta charset="utf-8">
+
+  <title>Proyecto Parcial NewJeans</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Molle:ital@1&display=swap" rel="stylesheet">
+
+
+  <style>
+
+    body{
+      text-align: center;
+      background-color: #3f6cff;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 30px;
+    }
+
+    h1{
+      color: #fff9de;
+      font-size: 50px;
+      margin-bottom: 10px;
+      font-family: "Molle", cursive;
+    }
+
+    h2{
+      color: #fff9de;
+      font-size: 30px;
+      margin-top: 35px;
+      margin-bottom: 10px;
+      font-family: "Molle", cursive;
+    }
+
+    p{
+      color: #ffffff;
+      font-size: 18px;
+      max-width: 750px;
+      margin: 0 auto 20px auto;
+      line-height: 1.5;
+      font-family: "JetBrains Mono", monospace;
+      text-align: justify;
+    }
+
+    #bunnycanvas{
+      display: block;
+      margin: 10px auto 20px auto;
+      border: none;
+      background-color: transparent;
+    }
+
+    #micanvas{
+      display: block;
+      margin: 30px auto;
+      border: 3px solid #3f6cff;
+      background-color: #fff9de;
+      border-radius: 25px;
+    }
+
+  </style>
+
+</head>
+
+
+<body>
+
+  <h1>NewJeans</h1>
+
+  <p>
+    NewJeans es un grupo femenino surcoreano formado por cinco integrantes: Minji, Hanni, Danielle, Haerin y Hyein. El grupo debutó en 2022 y se ha caracterizado por su estilo juvenil, su sonido inspirado en el pop y R&B, y una identidad visual con influencias de la estética Y2K.
+  </p>
+
+
+  <canvas id="bunnycanvas" width="900" height="180"></canvas>
+
+
+  <h2>¡Conoce a las integrantes!</h2>
+
+  <p>
+    Presiona las teclas A, B, C, D o E para conocer a cada integrante.
+  </p>
+
+
+  <canvas id="micanvas" width="900" height="600"></canvas>
+
+
+  <script src="keycodes.js"></script>
+
+
+  <script>
+
+    var x = 0;
+    var dx = 4;
+
+
+    window.onload = function () {
+
+
+      var bunnyCanvas = document.getElementById("bunnycanvas");
+      var bunnyContext = bunnyCanvas.getContext("2d");
+
+
+      var bunny = new Image();
+      bunny.src = "bunny.png";
+
+
+      function animateBunny(){
+
+        requestAnimationFrame(animateBunny);
+
+
+        bunnyContext.clearRect(
+          0,
+          0,
+          bunnyCanvas.width,
+          bunnyCanvas.height
+        );
+
+
+        bunnyContext.drawImage(
+          bunny,
+          x,
+          10,
+          120,
+          160
+        );
+
+
+        if(x > bunnyCanvas.width - 120 || x < 0){
+
+          dx = -dx;
+
+        }
+
+
+        x += dx;
+
+      }
+
+
+      bunny.onload = function(){
+
+        animateBunny();
+
+      };
+
+
+
+      var canvas = document.getElementById("micanvas");
+
+      var context = canvas.getContext("2d");
+
+
+      var minji = new Image();
+      minji.src = "minji.jpg";
+
+      var hanni = new Image();
+      hanni.src = "hanni.jpg";
+
+      var danielle = new Image();
+      danielle.src = "danielle.jpg";
+
+      var haerin = new Image();
+      haerin.src = "haerin.jpg";
+
+      var hyein = new Image();
+      hyein.src = "hyein.jpg";
+
+
+
+      function dibujarMiembro(
+        imagen,
+        nombre,
+        nombreCompleto,
+        nacimiento,
+        nacionalidad
+      ){
+
+        context.clearRect(
+          0,
+          0,
+          canvas.width,
+          canvas.height
+        );
+
+
+        context.drawImage(
+          imagen,
+          60,
+          60,
+          360,
+          475
+        );
+
+
+        context.fillStyle = "#3f6cff";
+
+        context.font = '50px "Molle"';
+
+        context.fillText(
+          nombre,
+          480,
+          180
+        );
+
+
+        context.fillStyle = "#000000";
+
+        context.font = '18px "JetBrains Mono"';
+
+
+        context.fillText(
+          "Nombre completo:",
+          480,
+          250
+        );
+
+        context.fillText(
+          nombreCompleto,
+          480,
+          280
+        );
+
+
+        context.fillText(
+          "Fecha de nacimiento:",
+          480,
+          340
+        );
+
+        context.fillText(
+          nacimiento,
+          480,
+          370
+        );
+
+
+        context.fillText(
+          "Nacionalidad:",
+          480,
+          430
+        );
+
+        context.fillText(
+          nacionalidad,
+          480,
+          460
+        );
+
+      }
+
+
+
+      minji.onload = function(){
+
+        dibujarMiembro(
+          minji,
+          "Minji",
+          "Kim Minji",
+          "7 de mayo de 2004",
+          "Surcoreana"
+        );
+
+      };
+
+
+
+      function onKeyboardEvent (event) {
+
+        switch (event.keyCode) {
+
+
+        case keycode.A:
+
+          dibujarMiembro(
+            minji,
+            "Minji",
+            "Kim Minji",
+            "7 de mayo de 2004",
+            "Surcoreana"
+          );
+
+          break;
+
+
+        case keycode.B:
+
+          dibujarMiembro(
+            hanni,
+            "Hanni",
+            "Hanni Pham",
+            "6 de octubre de 2004",
+            "Vietnamita-australiana"
+          );
+
+          break;
+
+
+        case keycode.C:
+
+          dibujarMiembro(
+            danielle,
+            "Danielle",
+            "Danielle June Marsh",
+            "11 de abril de 2005",
+            "Coreana-australiana"
+          );
+
+          break;
+
+
+        case keycode.D:
+
+          dibujarMiembro(
+            haerin,
+            "Haerin",
+            "Kang Haerin",
+            "15 de mayo de 2006",
+            "Surcoreana"
+          );
+
+          break;
+
+
+        case keycode.E:
+
+          dibujarMiembro(
+            hyein,
+            "Hyein",
+            "Lee Hyein",
+            "21 de abril de 2008",
+            "Surcoreana"
+          );
+
+          break;
+
+
+        default:
+
+          console.log(event.keyCode);
+
+        }
+
+      }
+
+
+      window.addEventListener(
+        'keydown',
+        onKeyboardEvent,
+        false
+      );
+
+
+    };
+
+  </script>
+
+
+</body>
+
+</html>
