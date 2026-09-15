@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Actividad 2 Rotación con Mouse</title>
+    <style>
+        body{
+            text-align: center;
+            background-color: #dcecff;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 30px;
+        }
+        h1{
+            font-family: Arial, sans-serif;
+            color: #3f6cff;
+        }
+        canvas{
+            border: 3px solid black;
+            background-color: white;
+            background-image: url("escenario.png");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+    </style>
+</head>
+<body>
+    <h1>A2 - Animación rotación al mouse</h1>
+    <canvas id="canvas" width="1000" height="700"></canvas>
+    <p>Mueve el mouse alrededor para lavar al gato</p>
+    <script src="utils.js"></script>
+    <script>
+    window.onload = function () {
+        var canvas = document.getElementById("canvas"),
+            context = canvas.getContext("2d"),
+            mouse = utils.captureMouse(canvas),
+            gato = new Image();
+        gato.src = "gato.png";
+        (function drawFrame () {
+            window.requestAnimationFrame(drawFrame, canvas);
+            context.clearRect(
+                0,
+                0,
+                canvas.width,
+                canvas.height
+            );
+            var x = canvas.width / 2;
+            var y = canvas.height / 2;
+            var dx = mouse.x - x;
+            var dy = mouse.y - y;
+            var radianes = Math.atan2(dy, dx);
+            context.save();
+            context.translate(x, y);
+            context.rotate(radianes);
+            context.drawImage(
+                gato,
+                -gato.width / 2,
+                -gato.height / 2
+            );
+            context.restore();
+        }());
+    };
+    </script>
+</body>
+</html>
