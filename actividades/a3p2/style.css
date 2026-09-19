@@ -1,0 +1,23 @@
+body {
+  margin: 0;
+  padding: 30px;
+  text-align: center;
+  background-color: #dcecff;
+  font-family: Arial, sans-serif;
+}
+
+h1 {
+  color: #3f6cff;
+  font-size: 42px;
+}
+
+canvas {
+  display: block;
+  margin: 0 auto;
+
+  background-image: url("fondo.png");
+  background-size: 1000px 900px;
+  background-repeat: no-repeat;
+
+  border: 3px solid #3f6cff;
+}
