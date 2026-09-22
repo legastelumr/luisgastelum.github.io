@@ -1,0 +1,69 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>A4 - Reto onda sinoidal</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Black+And+White+Picture&display=swap" rel="stylesheet">
+
+<body>
+
+  <h1>Pez Globo</h1>
+
+  <canvas id="canvas" width="1000" height="700"></canvas>
+
+  <script src="./classes/pez.js"></script>
+
+  <script>
+    window.onload = function () {
+
+      var canvas = document.getElementById("canvas"),
+          context = canvas.getContext("2d"),
+          pez = new Pez(),
+
+          angle = 0,
+          centerY = 350,
+          range = 120,
+          speed = 0.08,
+          xspeed = 4;
+
+      pez.x = 100;
+
+      (function drawFrame() {
+
+        window.requestAnimationFrame(drawFrame, canvas);
+
+        context.clearRect(
+          0,
+          0,
+          canvas.width,
+          canvas.height
+        );
+
+        pez.x += xspeed;
+
+        pez.y =
+          centerY + Math.sin(angle) * range;
+
+        if (
+          pez.x >= canvas.width - pez.width / 2 ||
+          pez.x <= pez.width / 2
+        ) {
+          xspeed *= -1;
+        }
+
+        angle += speed;
+
+        pez.draw(context);
+
+      }());
+
+    };
+  </script>
+
+</body>
+</html>
