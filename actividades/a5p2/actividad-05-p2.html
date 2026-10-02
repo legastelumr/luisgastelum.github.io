@@ -1,0 +1,348 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Actividad 5 - Figuras en Canvas</title>
+
+  <style>
+    body{
+      text-align: center;
+      background-color: #dcecff;
+      font-family: Arial, sans-serif;
+    }
+
+    h1, h2{
+      color: #5a84f1;
+    }
+
+    canvas{
+      border: 3px solid #5a84f1;
+      margin-bottom: 30px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>Actividad 5 - Dibujo de Figuras en Canvas</h1>
+
+  <canvas id="canvas" width="1000" height="700"></canvas>
+
+  <h2>Extra Zorrito CETYS</h2>
+
+  <canvas id="canvasZorro" width="1000" height="700"></canvas>
+
+
+  <script>
+
+    window.onload = function () {
+      var canvas = document.getElementById("canvas"),
+          context = canvas.getContext("2d");
+
+      context.lineWidth = 2;
+      context.strokeStyle = "black";
+
+
+      context.fillStyle = "#42449b";
+      context.fillRect(0, 0, 1000, 520);
+
+      context.fillStyle = "#a8b28f";
+      context.fillRect(0, 520, 1000, 180);
+
+
+      /* luna */
+      context.beginPath();
+      context.arc(180, 170, 85, 0, Math.PI * 2);
+      context.fillStyle = "#d4cf6f";
+      context.fill();
+      context.stroke();
+
+      context.beginPath();
+      context.arc(225, 145, 85, 0, Math.PI * 2);
+      context.fillStyle = "#42449b";
+      context.fill();
+
+
+      /* estrella */
+      context.beginPath();
+      context.moveTo(500, 110);
+      context.lineTo(515, 145);
+      context.lineTo(550, 145);
+      context.lineTo(522, 168);
+      context.lineTo(533, 205);
+      context.lineTo(500, 183);
+      context.lineTo(467, 205);
+      context.lineTo(478, 168);
+      context.lineTo(450, 145);
+      context.lineTo(485, 145);
+      context.closePath();
+
+      context.fillStyle = "#eadf82";
+      context.fill();
+      context.stroke();
+
+
+      /* casa */
+      context.fillStyle = "#c8c3a7";
+      context.fillRect(730, 260, 170, 260);
+      context.strokeRect(730, 260, 170, 260);
+
+      context.beginPath();
+      context.moveTo(730, 260);
+      context.lineTo(815, 195);
+      context.lineTo(900, 260);
+      context.closePath();
+
+      context.fillStyle = "#8f3115";
+      context.fill();
+      context.stroke();
+
+      context.fillStyle = "#99a6d3";
+      context.fillRect(750, 330, 35, 35);
+      context.strokeRect(750, 330, 35, 35);
+
+      context.fillRect(845, 330, 35, 35);
+      context.strokeRect(845, 330, 35, 35);
+
+      context.fillStyle = "#99552d";
+      context.fillRect(792, 430, 45, 90);
+      context.strokeRect(792, 430, 45, 90);
+
+
+      /* honguito */
+      context.beginPath();
+      context.moveTo(225, 470);
+      context.quadraticCurveTo(305, 380, 385, 470);
+      context.lineTo(225, 470);
+      context.closePath();
+
+      context.fillStyle = "#cf5a3d";
+      context.fill();
+      context.stroke();
+
+      context.fillStyle = "#ece8e1";
+      context.fillRect(290, 470, 35, 50);
+      context.strokeRect(290, 470, 35, 50);
+
+      context.beginPath();
+      context.arc(282, 455, 8, 0, Math.PI * 2);
+      context.fillStyle = "white";
+      context.fill();
+      context.stroke();
+
+      context.beginPath();
+      context.arc(305, 440, 11, 0, Math.PI * 2);
+      context.fill();
+      context.stroke();
+
+      context.beginPath();
+      context.arc(332, 457, 8, 0, Math.PI * 2);
+      context.fill();
+      context.stroke();
+
+
+      /* lampara */
+      context.fillStyle = "#666666";
+      context.fillRect(575, 390, 10, 130);
+      context.strokeRect(575, 390, 10, 130);
+
+      context.beginPath();
+      context.moveTo(580, 390);
+      context.lineTo(580, 360);
+      context.lineTo(620, 360);
+      context.stroke();
+
+      context.fillStyle = "#777777";
+      context.fillRect(612, 360, 18, 20);
+      context.strokeRect(612, 360, 18, 20);
+
+      context.beginPath();
+      context.arc(621, 392, 10, 0, Math.PI * 2);
+      context.fillStyle = "#f0df84";
+      context.fill();
+      context.stroke();
+
+      var canvasZorro = document.getElementById("canvasZorro"),
+          zorro = canvasZorro.getContext("2d");
+
+
+      /* fondo */
+      zorro.fillStyle = "white";
+      zorro.fillRect(0, 0, 1000, 700);
+
+
+      zorro.beginPath();
+
+      /* oreja izquierda */
+      zorro.moveTo(300, 70);
+      zorro.lineTo(410, 215);
+
+      /* parte superior cabeza */
+      zorro.lineTo(590, 215);
+
+      /* oreja derecha */
+      zorro.lineTo(700, 70);
+      zorro.lineTo(685, 270);
+
+      /* mejilla derecha */
+      zorro.lineTo(770, 350);
+      zorro.lineTo(700, 390);
+
+      /* mandíbula derecha */
+      zorro.lineTo(630, 500);
+
+      /* mentón */
+      zorro.lineTo(500, 625);
+
+      /* mandíbula izquierda */
+      zorro.lineTo(370, 500);
+
+      /* mejilla izquierda */
+      zorro.lineTo(300, 390);
+      zorro.lineTo(230, 350);
+
+      /* regreso a oreja */
+      zorro.lineTo(315, 270);
+
+      zorro.closePath();
+
+      zorro.fillStyle = "black";
+      zorro.fill();
+
+
+      zorro.beginPath();
+
+      /* oreja izquierda */
+      zorro.moveTo(325, 115);
+      zorro.lineTo(420, 235);
+
+      /* frente */
+      zorro.lineTo(580, 235);
+
+      /* oreja derecha */
+      zorro.lineTo(675, 115);
+      zorro.lineTo(660, 280);
+
+      /* mejilla derecha */
+      zorro.lineTo(720, 342);
+      zorro.lineTo(655, 365);
+
+      /* lado derecho rostro */
+      zorro.lineTo(595, 465);
+
+      /* parte baja */
+      zorro.lineTo(540, 545);
+      zorro.lineTo(520, 565);
+
+      /* hocico */
+      zorro.lineTo(480, 565);
+      zorro.lineTo(460, 545);
+
+      /* lado izquierdo rostro */
+      zorro.lineTo(405, 465);
+
+      /* mejilla izquierda */
+      zorro.lineTo(345, 365);
+      zorro.lineTo(280, 342);
+
+      /* oreja */
+      zorro.lineTo(340, 280);
+
+      zorro.closePath();
+
+      zorro.fillStyle = "#ffd700";
+      zorro.fill();
+
+      zorro.beginPath();
+
+      zorro.moveTo(345, 145);
+      zorro.lineTo(400, 225);
+      zorro.lineTo(365, 285);
+      zorro.lineTo(335, 235);
+
+      zorro.closePath();
+
+      zorro.fillStyle = "black";
+      zorro.fill();
+
+      zorro.beginPath();
+
+      zorro.moveTo(655, 145);
+      zorro.lineTo(665, 235);
+      zorro.lineTo(635, 285);
+      zorro.lineTo(600, 225);
+
+      zorro.closePath();
+
+      zorro.fill();
+
+      zorro.beginPath();
+
+      zorro.moveTo(255, 355);
+      zorro.lineTo(340, 375);
+      zorro.lineTo(390, 455);
+
+      zorro.closePath();
+
+      zorro.fillStyle = "white";
+      zorro.fill();
+
+      zorro.lineWidth = 10;
+      zorro.strokeStyle = "black";
+      zorro.stroke();
+
+      zorro.beginPath();
+
+      zorro.moveTo(745, 355);
+      zorro.lineTo(610, 455);
+      zorro.lineTo(660, 375);
+
+      zorro.closePath();
+
+      zorro.fillStyle = "white";
+      zorro.fill();
+      zorro.stroke();
+
+
+      zorro.beginPath();
+
+      zorro.moveTo(365, 330);
+      zorro.lineTo(450, 365);
+      zorro.lineTo(455, 430);
+      zorro.lineTo(430, 390);
+      zorro.lineTo(405, 380);
+
+      zorro.closePath();
+
+      zorro.fillStyle = "black";
+      zorro.fill();
+
+      zorro.beginPath();
+
+      zorro.moveTo(635, 330);
+      zorro.lineTo(595, 380);
+      zorro.lineTo(570, 390);
+      zorro.lineTo(545, 430);
+      zorro.lineTo(550, 365);
+
+      zorro.closePath();
+
+      zorro.fill();
+
+      zorro.beginPath();
+
+      zorro.moveTo(465, 545);
+      zorro.lineTo(535, 545);
+      zorro.lineTo(500, 580);
+
+      zorro.closePath();
+
+      zorro.fillStyle = "black";
+      zorro.fill();
+
+    };
+
+  </script>
+
+</body>
+</html>
