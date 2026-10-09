@@ -1,0 +1,112 @@
+
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Actividad 7 - Simulación de reloj</title>
+
+  <style>
+    body {
+      background-color: #fcfff1;
+      text-align: center;
+      font-family: Arial, sans-serif;
+    }
+
+    h1 {
+      color: rgb(92, 134, 240);
+      font-size: 60px;
+      margin-bottom: 20px;
+    }
+
+    canvas {
+      background-color: white;
+      width: 700px;
+      height: 700px;
+      border: 3px solid black;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>Actividad 7. Simulación de reloj</h1>
+
+  <canvas id="canvas" width="1100" height="1100"></canvas>
+
+  <script src="utils.js"></script>
+
+  <script>
+    window.onload = function () {
+
+      var canvas = document.getElementById("canvas"),
+          context = canvas.getContext("2d"),
+
+          vr1 = 0.05,       // Horas
+          vr2 = vr1 * 12,   // Minutos
+          vr3 = vr2 * 60;   // Segundos
+
+      var reloj = new Image();
+      reloj.src = "reloj.png";
+
+      var hora = new Image();
+      hora.src = "horas.png";
+
+      var minuto = new Image();
+      minuto.src = "minutos.png";
+
+      var segundo = new Image();
+      segundo.src = "segundos.png";
+
+      var radianes1 = 0;
+      var radianes2 = 0;
+      var radianes3 = 0;
+
+      (function drawFrame () {
+
+        window.requestAnimationFrame(drawFrame, canvas);
+
+        context.clearRect(0, 0, canvas.width, canvas.height);
+        
+        if (reloj.complete && reloj.naturalWidth > 0) {
+          context.drawImage(reloj, 50, 50, 1000, 1000);
+        }
+
+        // Velocidad
+        radianes1 += vr1 * Math.PI / 180;
+        radianes2 += vr2 * Math.PI / 180;
+        radianes3 += vr3 * Math.PI / 180;
+
+        // Horas
+        if (hora.complete && hora.naturalWidth > 0) {
+          context.save();
+          context.translate(550, 550);
+          context.rotate(radianes1);
+          context.drawImage(hora, -500, -500, 1000, 1000);
+          context.restore();
+        }
+
+        // Minutos
+        if (minuto.complete && minuto.naturalWidth > 0) {
+          context.save();
+          context.translate(550, 550);
+          context.rotate(radianes2);
+          context.drawImage(minuto, -500, -500, 1000, 1000);
+          context.restore();
+        }
+
+        // Segundos
+        if (segundo.complete && segundo.naturalWidth > 0) {
+          context.save();
+          context.translate(550, 550);
+          context.rotate(radianes3);
+          context.drawImage(segundo, -500, -500, 1000, 1000);
+          context.restore();
+        }
+
+      }());
+
+    };
+  </script>
+
+</body>
+</html>
