@@ -1,0 +1,202 @@
+
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>A6 - Paint App personalizado</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fascinate&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      text-align: center;
+      background-image: url("fondo.jpg");
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      font-family: Arial;
+    }
+
+    h1 {
+      color: #648DE5;
+      font-family: "Fascinate", system-ui;
+      font-weight: 400;
+      font-size: 55px;
+      margin-bottom: 5px;
+    }
+
+    p {
+      color: #648DE5;
+      font-size: 18px;
+    }
+
+    canvas {
+      background-color: white;
+      border: 3px solid #648DE5;
+    }
+
+    .colores {
+      margin: 15px;
+    }
+
+    .colores button {
+      width: 45px;
+      height: 45px;
+      margin: 5px;
+      cursor: pointer;
+      border: none;
+      border-radius: 10px;
+    }
+
+    #red { background-color: #FF737D; }
+    #yellow { background-color: #FFD65A; }
+    #green { background-color: #65D6A5; }
+    #blue { background-color: #6A9BFF; }
+    #purple { background-color: #B18AF5; }
+    #black { background-color: #333333; }
+
+    .grosores {
+      margin: 15px;
+    }
+
+    .grosores button {
+      width: 60px;
+      height: 45px;
+      margin: 5px;
+      background-color: white;
+      border: 2px solid #648DE5;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+
+    .circulo1 {
+      width: 5px;
+      height: 5px;
+      background-color: black;
+      border-radius: 50%;
+      margin: auto;
+    }
+
+    .circulo2 {
+      width: 12px;
+      height: 12px;
+      background-color: black;
+      border-radius: 50%;
+      margin: auto;
+    }
+
+    .circulo3 {
+      width: 22px;
+      height: 22px;
+      background-color: black;
+      border-radius: 50%;
+      margin: auto;
+    }
+
+    #clear {
+      background-color: #648DE5;
+      color: white;
+      padding: 10px 20px;
+      margin-bottom: 15px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>Paint App</h1>
+  <p>Dibuja con el mouse</p>
+
+  <div class="colores">
+  <button id="black" value="#333333"></button>
+  <button id="red" value="#FF737D"></button>
+  <button id="yellow" value="#FFD65A"></button>
+  <button id="green" value="#65D6A5"></button>
+  <button id="blue" value="#6A9BFF"></button>
+  <button id="purple" value="#B18AF5"></button>
+  </div>
+
+  <div class="grosores">
+    <button value="2">
+      <div class="circulo1"></div>
+    </button>
+
+    <button value="8">
+      <div class="circulo2"></div>
+    </button>
+
+    <button value="15">
+      <div class="circulo3"></div>
+    </button>
+  </div>
+
+  <button id="clear">Borrar todo</button>
+
+  <div>
+    <canvas id="canvas" width="1000" height="700"></canvas>
+  </div>
+
+  <script src="utils.js"></script>
+
+  <script>
+    window.onload = function () {
+
+      var canvas = document.getElementById('canvas'),
+          context = canvas.getContext('2d'),
+          mouse = utils.captureMouse(canvas);
+
+      context.lineWidth = 2;
+
+      // Dibujar con el mouse
+      canvas.addEventListener('mousedown', function () {
+        context.beginPath();
+        context.moveTo(mouse.x, mouse.y);
+        canvas.addEventListener('mousemove', onMouseMove, false);
+      }, false);
+
+      canvas.addEventListener('mouseup', function () {
+        canvas.removeEventListener('mousemove', onMouseMove, false);
+      }, false);
+
+      function onMouseMove () {
+        context.lineTo(mouse.x, mouse.y);
+        context.stroke();
+      }
+
+      // Cambiar color
+      var colores = document.getElementsByClassName('colores')[0];
+
+      colores.addEventListener('click', function(event) {
+        if (event.target.tagName === 'BUTTON') {
+          context.strokeStyle = event.target.value;
+        }
+      });
+
+      // Cambiar grosor
+      var grosores = document.getElementsByClassName('grosores')[0];
+
+      grosores.addEventListener('click', function(event) {
+        var boton = event.target.closest('button');
+
+        if (boton) {
+          context.lineWidth = boton.value;
+        }
+      });
+
+      // Borrar todo
+      var clearButton = document.getElementById('clear');
+
+      clearButton.addEventListener('click', function() {
+        context.clearRect(0, 0, canvas.width, canvas.height);
+      });
+
+    };
+  </script>
+
+</body>
+</html>
