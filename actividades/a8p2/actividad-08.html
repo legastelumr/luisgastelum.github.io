@@ -1,0 +1,147 @@
+
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Actividad 8 - Nave Personalizada</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      background-color: #fcfff1;
+      text-align: center;
+    }
+
+    h1 {
+      color: rgb(58, 134, 247);
+      font-family: "Audiowide", sans-serif;
+      font-weight: 400;
+      font-style: normal;
+      font-size: 60px;
+    }
+
+    #canvas {
+      background-image: url("fondo.jpg");
+      background-size: cover;
+      background-position: center;
+      border: 3px solid rgb(58, 134, 247);
+    }
+
+    p {
+      font-family: sans-serif;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>Actividad 8. Nave Personalizada</h1>
+
+  <canvas id="canvas" width="1000" height="700"></canvas>
+
+  <p>Usa las flechas izquierda y derecha para girar</p>
+  <p>Presiona la flecha hacia arriba para acelerar</p>
+
+  <script src="minave.js"></script>
+
+  <script>
+    window.onload = function() {
+      var canvas = document.getElementById('canvas'),
+          context = canvas.getContext('2d'),
+          nave = new Navecita(),
+          vr = 0,
+          vx = 0,
+          vy = 0,
+          thrust = 0,
+          friction = 0.97;
+
+      var teclas = {};
+
+      nave.x = canvas.width / 2;
+      nave.y = canvas.height / 2;
+
+      window.addEventListener('keydown', function(event) {
+        if (event.keyCode >= 37 && event.keyCode <= 40) {
+          event.preventDefault();
+        }
+        teclas[event.keyCode] = true;
+      }, false);
+
+      window.addEventListener('keyup', function(event) {
+        teclas[event.keyCode] = false;
+      }, false);
+
+      window.addEventListener('blur', function() {
+        teclas = {};
+      }, false);
+
+      (function drawFrame() {
+        window.requestAnimationFrame(drawFrame);
+        context.clearRect(0, 0, canvas.width, canvas.height);
+
+        // Controles de la nave
+        vr = 0;
+        thrust = 0;
+        nave.showFlame = false;
+
+        if (teclas[37]) {
+          vr = -3;
+        }
+
+        if (teclas[39]) {
+          vr = 3;
+        }
+
+        if (teclas[38]) {
+          thrust = 0.05;
+          nave.showFlame = true;
+        }
+
+        // Rotación y aceleración
+        nave.rotation += vr * Math.PI / 180;
+
+        var angle = nave.rotation,
+            ax = Math.cos(angle) * thrust,
+            ay = Math.sin(angle) * thrust,
+            left = 0,
+            right = canvas.width,
+            top = 0,
+            bottom = canvas.height;
+
+        vx += ax;
+        vy += ay;
+
+        // Fricción
+        vx *= friction;
+        vy *= friction;
+
+        // Movimiento
+        nave.x += vx;
+        nave.y += vy;
+
+        // Screen wrapping horizontal
+        if (nave.x - nave.width / 2 > right) {
+          nave.x = left - nave.width / 2;
+        } else if (nave.x + nave.width / 2 < left) {
+          nave.x = right + nave.width / 2;
+        }
+
+        // Screen wrapping vertical
+        if (nave.y - nave.height / 2 > bottom) {
+          nave.y = top - nave.height / 2;
+        } else if (nave.y + nave.height / 2 < top) {
+          nave.y = bottom + nave.height / 2;
+        }
+
+        // Dibujar nave
+        nave.draw(context);
+
+      }());
+    };
+  </script>
+
+</body>
+</html>
