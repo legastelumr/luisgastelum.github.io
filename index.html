@@ -1,6 +1,6 @@
 
 <!doctype html>
-<html lang="es">
+<html>
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,9 +16,7 @@
       background-color: #fcfff1;
       text-align: center;
       font-family: Verdana, Geneva, Tahoma, sans-serif;
-      margin: 0;
-      padding: 30px 15px;
-      color: #333;
+      margin: 30px;
     }
 
     h1 {
@@ -39,69 +37,61 @@
     h3 {
       color: rgb(58, 134, 247);
       font-family: monospace;
-      font-size: 21px;
+      font-size: 20px;
       margin-bottom: 15px;
     }
 
     p {
-      font-size: 16px;
-      line-height: 1.6;
+      font-size: 15px;
     }
 
-    .contenedor {
-      max-width: 750px;
+    img {
+      width: 80%;
+      max-width: 500px;
+      height: auto;
+      margin: 20px 0;
+    }
+
+    .contenido {
+      max-width: 650px;
       margin: auto;
     }
 
-    .imagen-menu {
-      width: 100%;
-      max-width: 500px;
-      height: auto;
-      margin-top: 20px;
-    }
-
-    .seccion {
+    .parcial {
       margin-top: 35px;
     }
 
     ol {
-      list-style: none;
-      padding: 0;
-      margin: 0;
+      text-align: left;
+      padding-left: 30px;
+      line-height: 2.2;
     }
 
     li {
-      margin-bottom: 10px;
+      padding-left: 5px;
     }
 
     a {
-      display: block;
-      padding: 14px 18px;
-      background-color: #e8f1ff;
-      color: #2563b8;
-      border: 1px solid #c7ddff;
-      border-radius: 8px;
+      color: rgb(58, 134, 247);
       text-decoration: none;
       font-size: 15px;
-      transition: 0.3s;
     }
 
     a:hover {
-      background-color: rgb(58, 134, 247);
-      color: white;
-      transform: scale(1.02);
+      color: #174b9b;
+      text-decoration: underline;
     }
 
-    canvas {
-      display: block;
-      margin: 20px auto 0;
-      max-width: 100%;
+    hr {
+      border: none;
+      border-top: 1px solid #c7d9f4;
+      margin-top: 35px;
     }
 
     footer {
-      margin-top: 55px;
-      font-size: 13px;
+      margin-top: 50px;
       color: #777;
+      font-size: 13px;
     }
 
     @media (max-width: 600px) {
@@ -114,20 +104,17 @@
 
 <body>
 
-  <div class="contenedor">
+  <div class="contenido">
 
     <h1>Animación Dinámica 2026</h1>
 
     <p>Luis Gastelum</p>
 
-    <img class="imagen-menu"
-         src="menu.jpg"
-         alt="Burbujas Menu">
+    <img src="menu.jpg" alt="Burbujas Menu">
 
     <h2>Índice de actividades</h2>
-    <p>Actividades realizadas durante el semestre.</p>
 
-    <div class="seccion">
+    <div class="parcial">
       <h3>PARCIAL 1</h3>
 
       <ol>
@@ -145,7 +132,9 @@
       </ol>
     </div>
 
-    <div class="seccion">
+    <hr>
+
+    <div class="parcial">
       <h3>PARCIAL 2</h3>
 
       <ol>
@@ -193,7 +182,9 @@
       </ol>
     </div>
 
-    <div class="seccion">
+    <hr>
+
+    <div class="parcial">
       <h3>PARCIAL 3</h3>
 
       <ol>
@@ -205,7 +196,9 @@
       </ol>
     </div>
 
-    <div class="seccion">
+    <hr>
+
+    <div class="parcial">
       <h2>Participaciones</h2>
 
       <ol>
@@ -223,7 +216,9 @@
       </ol>
     </div>
 
-    <div class="seccion">
+    <hr>
+
+    <div class="parcial">
       <h2>Proyectos</h2>
 
       <ol>
@@ -235,42 +230,11 @@
       </ol>
     </div>
 
-    <canvas id="canvas" width="300" height="80"></canvas>
-
     <footer>
-      Animación Dinámica | 2026
+      Luis Gastelum | Animación Dinámica 2026
     </footer>
 
   </div>
-
-  <script>
-    window.onload = function () {
-      var canvas = document.getElementById("canvas");
-      var context = canvas.getContext("2d");
-
-      var tiempo = 0;
-
-      function animar() {
-        requestAnimationFrame(animar);
-
-        context.clearRect(0, 0, canvas.width, canvas.height);
-
-        for (var i = 0; i < 5; i++) {
-          var x = 40 + i * 55;
-          var y = 40 + Math.sin(tiempo + i) * 15;
-
-          context.beginPath();
-          context.arc(x, y, 8, 0, Math.PI * 2);
-          context.fillStyle = "rgb(58, 134, 247)";
-          context.fill();
-        }
-
-        tiempo += 0.03;
-      }
-
-      animar();
-    };
-  </script>
 
 </body>
 </html>
