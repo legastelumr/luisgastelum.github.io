@@ -1,161 +1,276 @@
 
 <!doctype html>
-<html>
- <head>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bitcount+Prop+Double:wght@100..900&display=swap" rel="stylesheet">
 
-  <meta charset="utf-8">
   <title>Animación Dinámica Luis Gastelum</title>
 
   <style>
     body {
-      background-color:#fcfff1;
+      background-color: #fcfff1;
       text-align: center;
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      margin: 0;
+      padding: 30px 15px;
+      color: #333;
     }
 
     h1 {
-      color:rgb(58, 134, 247);
+      color: rgb(58, 134, 247);
       font-family: "Bitcount Prop Double", system-ui;
-      font-optical-sizing: auto;
       font-weight: 400;
-      font-style: normal;
       font-size: 60px;
+      margin-bottom: 10px;
     }
 
     h2 {
-      color:rgb(58, 134, 247);
+      color: rgb(58, 134, 247);
       font-family: monospace;
       font-size: 25px;
+      margin-top: 45px;
     }
 
-    p1 {
-      font-family: Verdana, Geneva, Tahoma, sans-serif;
-      font-size: 16px;
+    h3 {
+      color: rgb(58, 134, 247);
+      font-family: monospace;
+      font-size: 21px;
+      margin-bottom: 15px;
     }
 
-    p2 {
-      font-family: Verdana, Geneva, Tahoma, sans-serif;
+    p {
       font-size: 16px;
+      line-height: 1.6;
     }
 
-    p3 {
-      font-family: Verdana, Geneva, Tahoma, sans-serif;
-      font-size: 16px;
+    .contenedor {
+      max-width: 750px;
+      margin: auto;
+    }
+
+    .imagen-menu {
+      width: 100%;
+      max-width: 500px;
+      height: auto;
+      margin-top: 20px;
+    }
+
+    .seccion {
+      margin-top: 35px;
+    }
+
+    ol {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    li {
+      margin-bottom: 10px;
+    }
+
+    a {
+      display: block;
+      padding: 14px 18px;
+      background-color: #e8f1ff;
+      color: #2563b8;
+      border: 1px solid #c7ddff;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 15px;
+      transition: 0.3s;
+    }
+
+    a:hover {
+      background-color: rgb(58, 134, 247);
+      color: white;
+      transform: scale(1.02);
+    }
+
+    canvas {
+      display: block;
+      margin: 20px auto 0;
+      max-width: 100%;
+    }
+
+    footer {
+      margin-top: 55px;
+      font-size: 13px;
+      color: #777;
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 42px;
+      }
     }
   </style>
- </head>
+</head>
 
- <body>
+<body>
 
-  <h1>Animación Dinámica 2026</h1>
+  <div class="contenedor">
 
-  <img src="menu.jpg" alt="Burbujas Menu" width="599" height="424">
+    <h1>Animación Dinámica 2026</h1>
 
-  <h2>Índice de actividades</h2>
+    <p>Luis Gastelum</p>
 
-  <p>PARCIAL 1 Actividades de la materia de Animación Dinámica.</p>
+    <img class="imagen-menu"
+         src="menu.jpg"
+         alt="Burbujas Menu">
 
-  <ol>
-    <li>
-      <a href="actividades/a2/pagina01.html">
-        Actividad 1. Página HTML Básica
-      </a>
-    </li>
+    <h2>Índice de actividades</h2>
+    <p>Actividades realizadas durante el semestre.</p>
 
-    <li>
-      <a href="actividades/a4/actividad04.html">
-        Actividad 4. Arte y Animación en Canvas
-      </a>
-    </li>
-  </ol>
+    <div class="seccion">
+      <h3>PARCIAL 1</h3>
 
+      <ol>
+        <li>
+          <a href="actividades/a2/pagina01.html">
+            Actividad 1. Página HTML Básica
+          </a>
+        </li>
 
-  <p>PARCIAL 2 Actividades de la materia de Animación Dinámica.</p>
+        <li>
+          <a href="actividades/a4/actividad04.html">
+            Actividad 4. Arte y Animación en Canvas
+          </a>
+        </li>
+      </ol>
+    </div>
 
-  <ol>
-    <li>
-      <a href="actividades/a2p2/a2-rotacion-mouse.html">
-        Actividad 2. Animación Rotación al Mouse
-      </a>
-    </li>
+    <div class="seccion">
+      <h3>PARCIAL 2</h3>
 
-    <li>
-      <a href="actividades/a3p2/actividad-03-sinoidal-coseno.html">
-        Actividad 3. Animación con onda sinoidal/coseno
-      </a>
-    </li>
+      <ol>
+        <li>
+          <a href="actividades/a2p2/a2-rotacion-mouse.html">
+            Actividad 2. Animación Rotación al Mouse
+          </a>
+        </li>
 
-    <li>
-      <a href="actividades/a4p2/actividad-04-reto.html">
-        Actividad 4. Reto onda sinoidal
-      </a>
-    </li>
+        <li>
+          <a href="actividades/a3p2/actividad-03-sinoidal-coseno.html">
+            Actividad 3. Animación con onda sinoidal/coseno
+          </a>
+        </li>
 
-    <li>
-      <a href="actividades/a5p2/actividad-05-p2.html">
-        Actividad 5. Dibujo de figuras en Canvas
-      </a>
-    </li>
+        <li>
+          <a href="actividades/a4p2/actividad-04-reto.html">
+            Actividad 4. Reto onda sinoidal
+          </a>
+        </li>
 
-    <li>
-      <a href="actividades/a6p2/actividad-06.html">
-        Actividad 6. Paint App Personalizado
-      </a>
-    </li>
+        <li>
+          <a href="actividades/a5p2/actividad-05-p2.html">
+            Actividad 5. Dibujo de figuras en Canvas
+          </a>
+        </li>
 
-    <li>
-      <a href="actividades/a7p2/actividad-07.html">
-        Actividad 7. Simulación de Reloj
-      </a>
-    </li>
+        <li>
+          <a href="actividades/a6p2/actividad-06.html">
+            Actividad 6. Paint App Personalizado
+          </a>
+        </li>
 
-    <li>
-      <a href="actividades/a8p2/actividad-08.html">
-        Actividad 8. Nave Personalizada
-      </a>
-    </li>
-  </ol>
+        <li>
+          <a href="actividades/a7p2/actividad-07.html">
+            Actividad 7. Simulación de Reloj
+          </a>
+        </li>
 
+        <li>
+          <a href="actividades/a8p2/actividad-08.html">
+            Actividad 8. Nave Personalizada
+          </a>
+        </li>
+      </ol>
+    </div>
 
-  <p>PARCIAL 3 Actividades de la materia de Animación Dinámica.</p>
+    <div class="seccion">
+      <h3>PARCIAL 3</h3>
 
-  <ol>
-    <li>
-      <a href="actividades/a2p3/index.html">
-        Actividad 2. Modelo 3D en Model Viewer
-      </a>
-    </li>
-  </ol>
+      <ol>
+        <li>
+          <a href="actividades/a2p3/index.html">
+            Actividad 2. Modelo 3D en Model Viewer
+          </a>
+        </li>
+      </ol>
+    </div>
 
+    <div class="seccion">
+      <h2>Participaciones</h2>
 
-  <p>Participaciones de la materia de Animación Dinámica.</p>
+      <ol>
+        <li>
+          <a href="actividades/p1/participacion01.html">
+            Participación 1. Página Golden Globes
+          </a>
+        </li>
 
-  <ol>
-    <li>
-      <a href="actividades/p1/participacion01.html">
-        Participación 1. Página Golden Globes
-      </a>
-    </li>
+        <li>
+          <a href="actividades/p2/participacion02.html">
+            Participación 2. Reto Canvas
+          </a>
+        </li>
+      </ol>
+    </div>
 
-    <li>
-      <a href="actividades/p2/participacion02.html">
-        Participación 2. Reto Canvas
-      </a>
-    </li>
-  </ol>
+    <div class="seccion">
+      <h2>Proyectos</h2>
 
+      <ol>
+        <li>
+          <a href="actividades/parcial1/proyecto_newjeans.html">
+            Parcial 1. Interactivo con Teclado
+          </a>
+        </li>
+      </ol>
+    </div>
 
-  <p>Proyectos de la materia de Animación Dinámica.</p>
+    <canvas id="canvas" width="300" height="80"></canvas>
 
-  <ol>
-    <li>
-      <a href="actividades/parcial1/proyecto_newjeans.html">
-        Parcial 1. Interactivo con Teclado
-      </a>
-    </li>
-  </ol>
+    <footer>
+      Animación Dinámica | 2026
+    </footer>
 
- </body>
+  </div>
+
+  <script>
+    window.onload = function () {
+      var canvas = document.getElementById("canvas");
+      var context = canvas.getContext("2d");
+
+      var tiempo = 0;
+
+      function animar() {
+        requestAnimationFrame(animar);
+
+        context.clearRect(0, 0, canvas.width, canvas.height);
+
+        for (var i = 0; i < 5; i++) {
+          var x = 40 + i * 55;
+          var y = 40 + Math.sin(tiempo + i) * 15;
+
+          context.beginPath();
+          context.arc(x, y, 8, 0, Math.PI * 2);
+          context.fillStyle = "rgb(58, 134, 247)";
+          context.fill();
+        }
+
+        tiempo += 0.03;
+      }
+
+      animar();
+    };
+  </script>
+
+</body>
 </html>
