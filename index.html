@@ -1,101 +1,94 @@
+
 <!doctype html>
 <html>
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bitcount+Prop+Double:wght@100..900&display=swap" rel="stylesheet">
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>Animación Dinámica Luis Gastelum</title>
 
   <style>
     body {
-      background-color: #fcfff1;
+      background-color: rgb(58, 134, 247);
       text-align: center;
       font-family: Verdana, Geneva, Tahoma, sans-serif;
       margin: 30px;
     }
 
     h1 {
-      color: rgb(58, 134, 247);
+      color: #fcfff1;
       font-family: "Bitcount Prop Double", system-ui;
       font-weight: 400;
-      font-size: 60px;
+      font-size: 65px;
       margin-bottom: 10px;
     }
 
     h2 {
       color: rgb(58, 134, 247);
+      background-color: #fcfff1;
       font-family: monospace;
       font-size: 25px;
+      padding: 15px;
+      border-radius: 10px;
       margin-top: 45px;
-    }
-
-    h3 {
-      color: rgb(58, 134, 247);
-      font-family: monospace;
-      font-size: 21px;
       margin-bottom: 20px;
     }
 
     p {
-      font-size: 15px;
+      color: #fcfff1;
+      font-size: 16px;
     }
 
     img {
       width: 80%;
-      max-width: 500px;
+      max-width: 550px;
       height: auto;
       margin: 20px 0;
     }
 
     .contenido {
-      max-width: 800px;
+      max-width: 1100px;
       margin: auto;
-    }
-
-    .parcial {
-      margin-top: 40px;
     }
 
     .actividades {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: 1fr 1fr;
       gap: 15px;
     }
 
     .actividad {
-      background-color: #eaf2ff;
-      border: 1px solid #c7ddff;
-      border-radius: 12px;
-      padding: 22px 15px;
-      text-decoration: none;
+      background-color: #fcfff1;
       color: rgb(58, 134, 247);
-      font-size: 15px;
+      border-radius: 10px;
+      padding: 25px;
+      text-decoration: none;
+      font-size: 16px;
       line-height: 1.5;
-      transition: 0.2s;
-    }
-
-    .actividad:hover {
-      background-color: #d5e7ff;
-      transform: translateY(-3px);
     }
 
     footer {
-      margin-top: 60px;
-      color: #777;
+      color: #fcfff1;
       font-size: 13px;
+      margin-top: 60px;
+      margin-bottom: 20px;
     }
 
     @media (max-width: 600px) {
       h1 {
-        font-size: 42px;
+        font-size: 40px;
       }
 
       .actividades {
         grid-template-columns: 1fr;
+      }
+
+      body {
+        margin: 15px;
       }
     }
   </style>
@@ -111,99 +104,92 @@
 
     <img src="menu.jpg" alt="Burbujas Menu">
 
-    <h2>Índice de actividades</h2>
+    <h2>PARCIAL 1</h2>
 
-    <div class="parcial">
-      <h3>PARCIAL 1</h3>
+    <div class="actividades">
 
-      <div class="actividades">
+      <a class="actividad" href="actividades/a2/pagina01.html">
+        Actividad 1. Página HTML Básica
+      </a>
 
-        <a class="actividad" href="actividades/a2/pagina01.html">
-          Actividad 1. Página HTML Básica
-        </a>
+      <a class="actividad" href="actividades/a4/actividad04.html">
+        Actividad 4. Arte y Animación en Canvas
+      </a>
 
-        <a class="actividad" href="actividades/a4/actividad04.html">
-          Actividad 4. Arte y Animación en Canvas
-        </a>
-
-      </div>
     </div>
 
-    <div class="parcial">
-      <h3>PARCIAL 2</h3>
 
-      <div class="actividades">
+    <h2>PARCIAL 2</h2>
 
-        <a class="actividad" href="actividades/a2p2/a2-rotacion-mouse.html">
-          Actividad 2. Animación Rotación al Mouse
-        </a>
+    <div class="actividades">
 
-        <a class="actividad" href="actividades/a3p2/actividad-03-sinoidal-coseno.html">
-          Actividad 3. Animación con onda sinoidal/coseno
-        </a>
+      <a class="actividad" href="actividades/a2p2/a2-rotacion-mouse.html">
+        Actividad 2. Animación Rotación al Mouse
+      </a>
 
-        <a class="actividad" href="actividades/a4p2/actividad-04-reto.html">
-          Actividad 4. Reto onda sinoidal
-        </a>
+      <a class="actividad" href="actividades/a3p2/actividad-03-sinoidal-coseno.html">
+        Actividad 3. Animación con onda sinoidal/coseno
+      </a>
 
-        <a class="actividad" href="actividades/a5p2/actividad-05-p2.html">
-          Actividad 5. Dibujo de figuras en Canvas
-        </a>
+      <a class="actividad" href="actividades/a4p2/actividad-04-reto.html">
+        Actividad 4. Reto onda sinoidal
+      </a>
 
-        <a class="actividad" href="actividades/a6p2/actividad-06.html">
-          Actividad 6. Paint App Personalizado
-        </a>
+      <a class="actividad" href="actividades/a5p2/actividad-05-p2.html">
+        Actividad 5. Dibujo de figuras en Canvas
+      </a>
 
-        <a class="actividad" href="actividades/a7p2/actividad-07.html">
-          Actividad 7. Simulación de Reloj
-        </a>
+      <a class="actividad" href="actividades/a6p2/actividad-06.html">
+        Actividad 6. Paint App Personalizado
+      </a>
 
-        <a class="actividad" href="actividades/a8p2/actividad-08.html">
-          Actividad 8. Nave Personalizada
-        </a>
+      <a class="actividad" href="actividades/a7p2/actividad-07.html">
+        Actividad 7. Simulación de Reloj
+      </a>
 
-      </div>
+      <a class="actividad" href="actividades/a8p2/actividad-08.html">
+        Actividad 8. Nave Personalizada
+      </a>
+
     </div>
 
-    <div class="parcial">
-      <h3>PARCIAL 3</h3>
 
-      <div class="actividades">
+    <h2>PARCIAL 3</h2>
 
-        <a class="actividad" href="actividades/a2p3/index.html">
-          Actividad 2. Modelo 3D en Model Viewer
-        </a>
+    <div class="actividades">
 
-      </div>
+      <a class="actividad" href="actividades/a2p3/index.html">
+        Actividad 2. Modelo 3D en Model Viewer
+      </a>
+
     </div>
 
-    <div class="parcial">
-      <h2>Participaciones</h2>
 
-      <div class="actividades">
+    <h2>PARTICIPACIONES</h2>
 
-        <a class="actividad" href="actividades/p1/participacion01.html">
-          Participación 1. Página Golden Globes
-        </a>
+    <div class="actividades">
 
-        <a class="actividad" href="actividades/p2/participacion02.html">
-          Participación 2. Reto Canvas
-        </a>
+      <a class="actividad" href="actividades/p1/participacion01.html">
+        Participación 1. Página Golden Globes
+      </a>
 
-      </div>
+      <a class="actividad" href="actividades/p2/participacion02.html">
+        Participación 2. Reto Canvas
+      </a>
+
     </div>
 
-    <div class="parcial">
-      <h2>Proyectos</h2>
 
-      <div class="actividades">
+    <h2>PROYECTOS</h2>
 
-        <a class="actividad" href="actividades/parcial1/proyecto_newjeans.html">
-          Parcial 1. Interactivo con Teclado
-        </a>
+    <div class="actividades">
 
-      </div>
+      <a class="actividad" href="actividades/parcial1/proyecto_newjeans.html">
+        Parcial 1. Interactivo con Teclado
+      </a>
+
     </div>
+
 
     <footer>
       Luis Gastelum | Animación Dinámica 2026
